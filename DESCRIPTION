@@ -20,15 +20,10 @@ Depends:
 Imports: 
     cli,
     dplyr,
-    fs,
-    glue,
     lifecycle,
-    parallel,
     rlang,
     stringr,
-    terra,
-    withr,
-    zen4R
+    terra
 Suggests: 
     readr,
     rgbif,
