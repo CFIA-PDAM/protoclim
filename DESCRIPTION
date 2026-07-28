@@ -24,7 +24,8 @@ Imports:
     lifecycle,
     rlang,
     stringr,
-    terra
+    terra,
+    tidyr
 Suggests: 
     readr,
     rgbif,

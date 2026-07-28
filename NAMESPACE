@@ -2,6 +2,7 @@
 
 export(add_covariates)
 export(add_quality_control_flags)
+export(calculate_climate_suitability)
 export(calculate_covariate_area)
 importFrom(lifecycle,deprecated)
 importFrom(rlang,.data)
