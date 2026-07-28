@@ -9,3 +9,9 @@
   occurrence record
 - [`bryonia_alba`](https://cfia-pdam.github.io/wracs/reference/bryonia_alba.md)
   : GBIF occurrence data for Bryonia alba
+- [`calculate_climate_suitability()`](https://cfia-pdam.github.io/wracs/reference/calculate_climate_suitability.md)
+  **\[experimental\]** : Calculate a weed species' climate suitability
+  across covariate levels
+- [`calculate_covariate_area()`](https://cfia-pdam.github.io/wracs/reference/calculate_covariate_area.md)
+  **\[experimental\]** : Calculate the area for each value of a
+  covariate
