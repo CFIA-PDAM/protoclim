@@ -20,6 +20,7 @@ Depends:
 Imports: 
     cli,
     dplyr,
+    glue,
     lifecycle,
     rlang,
     stringr,
@@ -34,3 +35,4 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 8.0.0
+Config/Needs/website: rmarkdown
