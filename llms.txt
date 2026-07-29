@@ -17,6 +17,9 @@
 - [`calculate_covariate_area()`](https://cfia-pdam.github.io/protoclim/reference/calculate_covariate_area.md)
   **\[experimental\]** : Calculate the area for each value of a
   covariate
+- [`climate_layers_ssp370_2011_2040()`](https://cfia-pdam.github.io/protoclim/reference/climate_layers_ssp370_2011_2040.md)
+  : Climate layers averaged over 2011 - 2040 under the SSP370 emission
+  scenario
 
 # Articles
 
