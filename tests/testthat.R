@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(wracs)
+library(protoclim)
 
-test_check("wracs")
+test_check("protoclim")

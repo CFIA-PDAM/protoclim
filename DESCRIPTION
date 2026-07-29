@@ -1,4 +1,4 @@
-Package: wracs
+Package: protoclim
 Title: Weed Risk Assessments using Climate Suitability Analysis
 Version: 0.0.0.9000
 Authors@R: c(
@@ -12,9 +12,9 @@ Description: Assess the climatic suitability of a weed species within
     North America on the basis of Koppen-Geiger classes, plant hardiness
     zones, and precipitation bands.
 License: MIT + file LICENSE
-URL: https://cfia-pdam.github.io/wracs/,
-    https://github.com/CFIA-PDAM/wracs
-BugReports: https://github.com/CFIA-PDAM/wracs/issues
+URL: https://cfia-pdam.github.io/protoclim/,
+    https://github.com/CFIA-PDAM/protoclim
+BugReports: https://github.com/CFIA-PDAM/protoclim/issues
 Depends: 
     R (>= 4.1.0)
 Imports: 
