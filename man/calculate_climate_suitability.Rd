@@ -4,21 +4,11 @@
 \alias{calculate_climate_suitability}
 \title{Calculate a weed species' climate suitability across covariate levels}
 \usage{
-calculate_climate_suitability(
-  gbif_occurrence_data = NULL,
-  covariate_summary = NULL,
-  covariate = c("kgc", "pb", "phz")
-)
+calculate_climate_suitability(gbif_occurrence_data = NULL)
 }
 \arguments{
 \item{gbif_occurrence_data}{a data frame of occurrence data extracted from
 GBIF. Augmented with covariate data via \code{add_covariates()}}
-
-\item{covariate_summary}{a data frame summarizing the area, in square miles,
-of each level of the specified covariate}
-
-\item{covariate}{a string representing the covariate, either 'kgc', 'pb', or
-phz'}
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}

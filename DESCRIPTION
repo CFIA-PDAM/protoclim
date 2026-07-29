@@ -22,6 +22,7 @@ Imports:
     dplyr,
     glue,
     lifecycle,
+    purrr,
     rlang,
     stringr,
     terra,
