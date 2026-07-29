@@ -12,16 +12,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/CFIA-PDAM/wracs/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/CFIA-PDAM/protoclim/blob/main/DESCRIPTION)
 
-Persi J, Abergel M (2026). *wracs: Weed Risk Assessments using Climate
-Suitability Analysis*. R package version 0.0.0.9000,
-<https://cfia-pdam.github.io/wracs/>.
+Persi J, Abergel M (2026). *protoclim: Weed Risk Assessments using
+Climate Suitability Analysis*. R package version 0.0.0.9000,
+<https://cfia-pdam.github.io/protoclim/>.
 
     @Manual{,
-      title = {wracs: Weed Risk Assessments using Climate Suitability Analysis},
+      title = {protoclim: Weed Risk Assessments using Climate Suitability Analysis},
       author = {Josh Persi and Megan Abergel},
       year = {2026},
       note = {R package version 0.0.0.9000},
-      url = {https://cfia-pdam.github.io/wracs/},
+      url = {https://cfia-pdam.github.io/protoclim/},
     }

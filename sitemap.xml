@@ -1,19 +1,19 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>https://cfia-pdam.github.io/wracs/404.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/LICENSE-text.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/LICENSE.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/articles/example-workflow.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/articles/index.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/authors.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/index.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/news/index.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/reference/add_covariates.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/reference/add_quality_control_flags.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/reference/bryonia_alba.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/reference/calculate_climate_suitability.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/reference/calculate_covariate_area.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/reference/check_occurrence_data_required_cols.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/reference/index.html</loc></url>
-<url><loc>https://cfia-pdam.github.io/wracs/reference/wracs-package.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/404.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/LICENSE-text.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/LICENSE.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/articles/example-workflow.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/articles/index.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/authors.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/index.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/news/index.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/reference/add_covariates.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/reference/add_quality_control_flags.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/reference/bryonia_alba.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/reference/calculate_climate_suitability.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/reference/calculate_covariate_area.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/reference/check_occurrence_data_required_cols.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/reference/index.html</loc></url>
+<url><loc>https://cfia-pdam.github.io/protoclim/reference/protoclim-package.html</loc></url>
 </urlset>
 

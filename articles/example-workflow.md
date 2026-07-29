@@ -2,7 +2,7 @@
 
 ``` r
 
-# library(wracs)
+# library(protoclim)
 ```
 
 Start by specifying where the data lives…
@@ -27,7 +27,7 @@ Then run add covariates
 ```
 
 Then run
-[`calculate_covariate_area()`](https://cfia-pdam.github.io/wracs/reference/calculate_covariate_area.md)
+[`calculate_covariate_area()`](https://cfia-pdam.github.io/protoclim/reference/calculate_covariate_area.md)
 
 ``` r
 
@@ -35,7 +35,7 @@ Then run
 ```
 
 Then run
-[`calculate_climate_suitability()`](https://cfia-pdam.github.io/wracs/reference/calculate_climate_suitability.md)
+[`calculate_climate_suitability()`](https://cfia-pdam.github.io/protoclim/reference/calculate_climate_suitability.md)
 
 ``` r
 

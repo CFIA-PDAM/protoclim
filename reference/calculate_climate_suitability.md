@@ -18,7 +18,7 @@ calculate_climate_suitability(
 
   a data frame of occurrence data extracted from GBIF. Augmented with
   covariate data via
-  [`add_covariates()`](https://cfia-pdam.github.io/wracs/reference/add_covariates.md)
+  [`add_covariates()`](https://cfia-pdam.github.io/protoclim/reference/add_covariates.md)
 
 - covariate_summary:
 
