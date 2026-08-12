@@ -34,9 +34,6 @@ To start, load `{protoclim}` into your R session.
 ```{r setup}
 #| output: false
 #| warning: false
-
-devtools::install()
-
 library(protoclim)
 ```
 
