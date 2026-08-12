@@ -3,9 +3,12 @@
 #' Occurrence data for the plant Bryonia alba, the Eastern white-bryony, from
 #' the Global Biodiversity Information Facility.
 #'
-#' @format A data frame with 9,962 rows and 6 variables:
+#' @format A data frame with 9,997 rows and 9 variables:
 #' \describe{
 #'   \item{datasetName}{The name identifying the data set from which the record was derived.}
+#'   \item{basisOfRecord}{The specific nature of the data record.}
+#'   \item{species}{The scientific name of the species.}
+#'   \item{countryCode}{The ISO 3166-1 alpha-2 country code where the occurrence was recorded.}
 #'   \item{decimalLatitude}{The geographic latitude (in decimal degrees, using the WGS84 datum) of the geographic centre of the location of the occurrence.}
 #'   \item{decimalLongitude}{The geographic longitude (in decimal degrees, using the WGS84 datum) of the geographic centre of the location of the occurrence.}
 #'   \item{habitat}{A category or description of the habitat in which the dwc:Event occurred.}
@@ -13,5 +16,5 @@
 #'   \item{year}{The four-digit year in which the event occurred, according to the Common Era calendar.}
 #' }
 #'
-#' @source GBIF.org (22 July 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.up8hzy
+#' @source GBIF.org (12 August 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.pgvhfj
 "bryonia_alba"

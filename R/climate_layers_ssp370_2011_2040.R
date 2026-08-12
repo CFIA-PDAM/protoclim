@@ -1,5 +1,7 @@
 #' Climate layers averaged over 2011 - 2040 under the SSP370 emission scenario
 #'
+#' `r lifecycle::badge("experimental")`
+#' 
 #' Loads a categorical raster containing global Köppen-Geiger classes,
 #' precipitation  bands, and plant hardiness zones. Downscaled and used for
 #' illustrative purposes only. For higher resolution data, see
@@ -16,6 +18,11 @@
 #'   lon/lat WGS 84 (EPSG:4326).
 #'
 #' @source Derived from \url{https://zenodo.org/records/21400412}
+#'
+#' @examples
+#' library(terra)
+#'
+#' plot(climate_layers_ssp370_2011_2040())
 #'
 #' @export
 climate_layers_ssp370_2011_2040 <- function() {

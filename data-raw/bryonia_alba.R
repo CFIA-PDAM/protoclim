@@ -13,6 +13,9 @@ bryonia_alba <- rgbif::occ_download_import(bryonia_alba)
 bryonia_alba <- dplyr::select(
   bryonia_alba,
   datasetName,
+  basisOfRecord,
+  species,
+  countryCode,
   decimalLatitude,
   decimalLongitude,
   habitat,

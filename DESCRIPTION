@@ -20,21 +20,24 @@ Depends:
 Imports: 
     cli,
     dplyr,
-    glue,
     lifecycle,
     purrr,
     rlang,
-    stringr,
     terra,
-    tidyr
+    tibble,
+    tidyr,
+    units
 Suggests: 
+    CoordinateCleaner,
+    countrycode,
+    geodata,
+    quarto,
     readr,
     rgbif,
     testthat (>= 3.0.0)
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 8.0.0
 Config/Needs/website: rmarkdown

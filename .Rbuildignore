@@ -11,4 +11,4 @@
 ^docs$
 ^pkgdown$
 ^codecov\.yml$
-^vignettes/articles$
+^vignettes$
