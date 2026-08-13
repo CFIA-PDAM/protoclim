@@ -35,7 +35,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/example-workflow.html">example-workflow</a></li>
+<li><a class="dropdown-item" href="articles/example-workflow.html">Example workflow</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -57,6 +57,72 @@
 <div class="section level1">
 <div class="page-header"><h1 id="protoclim">protoclim<a class="anchor" aria-label="anchor" href="#protoclim"></a>
 </h1></div>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
+<p><a href="https://cfia-pdam.github.io/protoclim/">protoclim</a> is an R package for determining the climatic suitability of plant species and is intended to support risk assessors in performing a formal <a href="https://www.ippc.int/en/publications/592/" class="external-link">pest risk analysis</a>. <a href="https://cfia-pdam.github.io/protoclim/">protoclim</a> is heavily inspired and influenced by the <a href="https://link.springer.com/article/10.1007/s10530-017-1567-1" class="external-link">Proto3</a> technique developed and used by the United States Department of Agriculture in their <a href="https://www.aphis.usda.gov/sites/default/files/wra-guidelines.pdf" class="external-link">Guidelines for the USDA-APHIS PPQ Weed Risk Assessment Process</a>.</p>
+<p><a href="https://cfia-pdam.github.io/protoclim/">protoclim</a> is designed to be interoperable with any categorical climate variable but being inspired by the Proto3 model is intended to be used with:</p>
+<ul>
+<li>Köppen-Geiger classes</li>
+<li>Precipitation bands</li>
+<li>Plant hardiness zones</li>
+</ul>
+<p>Users <em>are</em> able to bring their own data but high-resolution global data has already been currated for each of the above climate variables by the associated repository <a href="https://github.com/CFIA-PDAM/protoclim" class="external-link"><code>protoclimData</code></a> and is available for download from <a href="https://zenodo.org/records/21400412" class="external-link">Zenodo</a>. The climate variables are available across present-day and future time periods as well as various emission scenarios.</p>
+<p>In addition to climate data, using <a href="https://cfia-pdam.github.io/protoclim/">protoclim</a> requires species occurrence data from GBIF, the Global Biodiversity Information Facility. GBIF occurrence data can be downloaded from the <a href="https://www.gbif.org/occurrence/search?occurrenceStatus=present" class="external-link">GBIF website</a>, the <a href="https://docs.ropensci.org/rgbif" class="external-link">rgbif</a> R package, or various other means.</p>
+<p><a href="https://cfia-pdam.github.io/protoclim/">protoclim</a> comes with two datasets:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>bryonia_alba</code>, GBIF occurrence data for <em>Bryonia alba</em>, the white bryony</p></li>
+<li><p><code>climate_layers_ssp370_2011_2040</code>, a lower-resolution version of the associated <code>.tif</code> file hosted on <a href="https://zenodo.org/records/21400412" class="external-link">Zenodo</a>.</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">bryonia_alba</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 6</span></span>
+<span><span class="co">#&gt;   datasetName decimalLatitude decimalLongitude habitat            locality  year</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;                 &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;    &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1 Artportalen            59.3             18.1 ""                 Skanskv…  2014</span></span>
+<span><span class="co">#&gt; 2 Artportalen            59.0             18.3 "Snår vid vägen"   Utö vär…  2014</span></span>
+<span><span class="co">#&gt; 3 Artportalen            57.2             12.2 ""                 Nyebro,…  1988</span></span>
+<span><span class="co">#&gt; 4 Artportalen            57.2             12.2 ""                 Kärra, …    NA</span></span>
+<span><span class="co">#&gt; 5 Artportalen            57.1             12.4 "häck i villaträd… Gödesta…  1993</span></span>
+<span><span class="co">#&gt; 6 Artportalen            57.1             12.2 "grusmark"         Träslöv…    NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Note that a function is used to read the climate data</span></span>
+<span><span class="fu"><a href="reference/climate_layers_ssp370_2011_2040.html">climate_layers_ssp370_2011_2040</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; class       : SpatRaster</span></span>
+<span><span class="co">#&gt; size        : 2088, 4320, 3  (nrow, ncol, nlyr)</span></span>
+<span><span class="co">#&gt; resolution  : 0.08333333, 0.08333333  (x, y)</span></span>
+<span><span class="co">#&gt; extent      : -180.0001, 179.9999, -90.00014, 83.99986  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt; coord. ref. : lon/lat WGS 84 (EPSG:4326)</span></span>
+<span><span class="co">#&gt; source      : climate_layers_ssp370_2011_2040.tif</span></span>
+<span><span class="co">#&gt; colors rgb  : 1, 2, 3</span></span>
+<span><span class="co">#&gt; names       : kgc_mode, pb_mode, phz_mode</span></span>
+<span><span class="co">#&gt; min values  :        1,       1,        1</span></span>
+<span><span class="co">#&gt; max values  :       30,      11,       28</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>The easiest way to get <a href="https://cfia-pdam.github.io/protoclim/">protoclim</a> is to install it from CRAN:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"protoclim"</span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="development-version">Development version<a class="anchor" aria-label="anchor" href="#development-version"></a>
+</h3>
+<p>To get a bug fix or to use a feature from the development version, you can install the development version of protoclim from GitHub:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"CFIA-PDAM/protoclim"</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="getting-help">Getting help<a class="anchor" aria-label="anchor" href="#getting-help"></a>
+</h2>
+<p>If you encounter a clear bug, please file an issue with a minimal reproducible example on <a href="https://github.com/CFIA-PDAM/protoclim/issues" class="external-link">Github</a>.</p>
+</div>
 </div>
 
   </main><aside class="col-md-3"><div class="links">

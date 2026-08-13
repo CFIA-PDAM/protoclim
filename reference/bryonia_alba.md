@@ -11,11 +11,23 @@ bryonia_alba
 
 ## Format
 
-A data frame with 9,962 rows and 6 variables:
+A data frame with 9,997 rows and 9 variables:
 
 - datasetName:
 
   The name identifying the data set from which the record was derived.
+
+- basisOfRecord:
+
+  The specific nature of the data record.
+
+- species:
+
+  The scientific name of the species.
+
+- countryCode:
+
+  The ISO 3166-1 alpha-2 country code where the occurrence was recorded.
 
 - decimalLatitude:
 
@@ -43,5 +55,5 @@ A data frame with 9,962 rows and 6 variables:
 
 ## Source
 
-GBIF.org (22 July 2026) GBIF Occurrence Download
-https://doi.org/10.15468/dl.up8hzy
+GBIF.org (12 August 2026) GBIF Occurrence Download
+https://doi.org/10.15468/dl.pgvhfj

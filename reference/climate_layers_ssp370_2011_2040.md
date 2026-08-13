@@ -36,3 +36,13 @@ A terra raster with three layers
 - `phz_mode`:
 
   Plant hardiness zone (1-28).
+
+## Examples
+
+``` r
+library(terra)
+#> terra 1.9.34
+
+plot(climate_layers_ssp370_2011_2040())
+
+```
