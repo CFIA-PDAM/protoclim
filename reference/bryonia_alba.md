@@ -1,7 +1,7 @@
 # GBIF occurrence data for Bryonia alba
 
-Occurrence data for the plant Bryonia alba, the Eastern white-bryony,
-from the Global Biodiversity Information Facility.
+**\[experimental\]** Occurrence data for the plant Bryonia alba, the
+eastern white-bryony, from the Global Biodiversity Information Facility.
 
 ## Usage
 
@@ -11,11 +11,7 @@ bryonia_alba
 
 ## Format
 
-A data frame with 9,997 rows and 9 variables:
-
-- datasetName:
-
-  The name identifying the data set from which the record was derived.
+A data frame with 10,023 rows and 5 variables:
 
 - basisOfRecord:
 
@@ -39,21 +35,27 @@ A data frame with 9,997 rows and 9 variables:
   The geographic longitude (in decimal degrees, using the WGS84 datum)
   of the geographic centre of the location of the occurrence.
 
-- habitat:
-
-  A category or description of the habitat in which the dwc:Event
-  occurred.
-
-- locality:
-
-  The specific description of the place.
-
-- year:
-
-  The four-digit year in which the event occurred, according to the
-  Common Era calendar.
-
 ## Source
 
 GBIF.org (12 August 2026) GBIF Occurrence Download
 https://doi.org/10.15468/dl.pgvhfj
+
+## Examples
+
+``` r
+bryonia_alba
+#> # A tibble: 10,023 × 5
+#>    basisOfRecord     species      countryCode decimalLatitude decimalLongitude
+#>    <chr>             <chr>        <chr>                 <dbl>            <dbl>
+#>  1 HUMAN_OBSERVATION Bryonia alba SE                     59.3             18.1
+#>  2 HUMAN_OBSERVATION Bryonia alba SE                     59.0             18.3
+#>  3 HUMAN_OBSERVATION Bryonia alba SE                     57.2             12.2
+#>  4 HUMAN_OBSERVATION Bryonia alba SE                     57.2             12.2
+#>  5 HUMAN_OBSERVATION Bryonia alba SE                     57.1             12.4
+#>  6 HUMAN_OBSERVATION Bryonia alba SE                     57.1             12.2
+#>  7 HUMAN_OBSERVATION Bryonia alba SE                     57.1             12.2
+#>  8 HUMAN_OBSERVATION Bryonia alba SE                     57.1             12.3
+#>  9 HUMAN_OBSERVATION Bryonia alba SE                     57.0             12.4
+#> 10 HUMAN_OBSERVATION Bryonia alba SE                     56.9             16.8
+#> # ℹ 10,013 more rows
+```

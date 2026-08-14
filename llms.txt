@@ -3,81 +3,58 @@
 ## Overview
 
 [protoclim](https://cfia-pdam.github.io/protoclim/) is an R package for
-determining the climatic suitability of plant species and is intended to
-support risk assessors in performing a formal [pest risk
-analysis](https://www.ippc.int/en/publications/592/).
-[protoclim](https://cfia-pdam.github.io/protoclim/) is heavily inspired
-and influenced by the
-[Proto3](https://link.springer.com/article/10.1007/s10530-017-1567-1)
-technique developed and used by the United States Department of
-Agriculture in their [Guidelines for the USDA-APHIS PPQ Weed Risk
-Assessment
-Process](https://www.aphis.usda.gov/sites/default/files/wra-guidelines.pdf).
+estimating a plant species’ potential geographic distribution on the
+basis of the species’ known distribution in climatically similar areas
+elsewhere in the world (i.e. climate matching). The
+[protoclim](https://cfia-pdam.github.io/protoclim/) package is designed
+to be used by biologists from regulatory agencies as they perform a
+formal [pest risk
+analysis](https://openknowledge.fao.org/server/api/core/bitstreams/547258dd-7817-4cb0-bb49-ff362ee5215c/content).
+To this end, the [protoclim](https://cfia-pdam.github.io/protoclim/)
+package is designed to quickly and easily produce mappable estimates of
+a plants species’ potential geographic distribution. Inspiration for
+[protoclim](https://cfia-pdam.github.io/protoclim/) was drawn heavily
+from
+[`Proto3`](https://link.springer.com/article/10.1007/s10530-017-1567-1),
+a GIS workflow developed and used by the United States Department of
+Agriculture in their [weed risk
+assessment](https://www.aphis.usda.gov/sites/default/files/wra-guidelines.pdf)
+process.
 
-[protoclim](https://cfia-pdam.github.io/protoclim/) is designed to be
-interoperable with any categorical climate variable but being inspired
-by the Proto3 model is intended to be used with:
+As per `Proto3`, [protoclim](https://cfia-pdam.github.io/protoclim/)
+estimates a plant species’ geographic distribution based on its global
+occurrence in each level of the following categorical climate
+classification systems.
 
-- Köppen-Geiger classes
-- Precipitation bands
-- Plant hardiness zones
+1.  Köppen-Geiger classes
+2.  Plant hardiness zones
+3.  Precipitation bands
 
-Users *are* able to bring their own data but high-resolution global data
-has already been currated for each of the above climate variables by the
-associated repository
-[`protoclimData`](https://github.com/CFIA-PDAM/protoclim) and is
-available for download from
-[Zenodo](https://zenodo.org/records/21400412). The climate variables are
-available across present-day and future time periods as well as various
-emission scenarios.
+Multiple high-resolution global rasters containing each of these climate
+variables are available for download from
+[Zenodo](https://zenodo.org/records/21400412). At present, rasters are
+available for a combination of time periods (present vs. future) and
+emission scenarios (high vs. very-high). For more details, please see
+the associated repository
+[`protoclimData`](https://github.com/CFIA-PDAM/protoclimData).
 
-In addition to climate data, using
-[protoclim](https://cfia-pdam.github.io/protoclim/) requires species
-occurrence data from GBIF, the Global Biodiversity Information Facility.
-GBIF occurrence data can be downloaded from the [GBIF
-website](https://www.gbif.org/occurrence/search?occurrenceStatus=present),
-the [rgbif](https://docs.ropensci.org/rgbif) R package, or various other
-means.
+Besides a raster of climate data, the only other data required to use
+[protoclim](https://cfia-pdam.github.io/protoclim/) is species
+occurrence data from the Global Biodiversity Information Facility
+(GBIF).
 
-[protoclim](https://cfia-pdam.github.io/protoclim/) comes with two
-datasets:
+Users are encouraged to download the climate rasters from Zenodo and the
+occurrence data of their focal species from GBIF. For demonstration
+purposes, [protoclim](https://cfia-pdam.github.io/protoclim/) comes with
+two example datasets:
 
-1.  `bryonia_alba`, GBIF occurrence data for *Bryonia alba*, the white
-    bryony
+1.  `bryonia_alba`, GBIF occurrence data for *Bryonia alba*, the
+    [eastern white-bryony](https://www.gbif.org/taxon/NJ97)
 
-2.  `climate_layers_ssp370_2011_2040`, a lower-resolution version of the
-    associated `.tif` file hosted on
-    [Zenodo](https://zenodo.org/records/21400412).
-
-``` r
-
-head(bryonia_alba)
-#> # A tibble: 6 × 6
-#>   datasetName decimalLatitude decimalLongitude habitat            locality  year
-#>   <chr>                 <dbl>            <dbl> <chr>              <chr>    <int>
-#> 1 Artportalen            59.3             18.1 ""                 Skanskv…  2014
-#> 2 Artportalen            59.0             18.3 "Snår vid vägen"   Utö vär…  2014
-#> 3 Artportalen            57.2             12.2 ""                 Nyebro,…  1988
-#> 4 Artportalen            57.2             12.2 ""                 Kärra, …    NA
-#> 5 Artportalen            57.1             12.4 "häck i villaträd… Gödesta…  1993
-#> 6 Artportalen            57.1             12.2 "grusmark"         Träslöv…    NA
-```
-
-``` r
-
-# Note that a function is used to read the climate data
-climate_layers_ssp370_2011_2040()
-#> class       : SpatRaster
-#> size        : 2088, 4320, 3  (nrow, ncol, nlyr)
-#> resolution  : 0.08333333, 0.08333333  (x, y)
-#> extent      : -180.0001, 179.9999, -90.00014, 83.99986  (xmin, xmax, ymin, ymax)
-#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
-#> source      : climate_layers_ssp370_2011_2040.tif
-#> colors rgb  : 1, 2, 3
-#> names       : kgc_mode, pb_mode, phz_mode
-#> min values  :        1,       1,        1
-#> max values  :       30,      11,       28
-```
+2.  [`climate_layers_ssp370_2011_2040()`](https://cfia-pdam.github.io/protoclim/reference/climate_layers_ssp370_2011_2040.md),
+    downscaled Köppen-Geiger classes, plant hardiness zones, and
+    precipitation bands for present day (2011-2040) climate under the
+    SSP3-7.0 high emission scenario.
 
 ## Installation
 
@@ -103,6 +80,43 @@ pak::pkg_install("CFIA-PDAM/protoclim")
 
 ## Usage
 
+The main workflow of [protoclim](https://cfia-pdam.github.io/protoclim/)
+is:
+
+1.  classify the levels of each categorical climate variable by their
+    level of suitability. These suitability levels are based on the
+    proportion of occurrence records that fall within each level of the
+    climate variable. At present, the suitability levels and their
+    associated cutoffs are:
+
+| Proportion       | Suitability               |
+|:-----------------|:--------------------------|
+| \>1%             | Suitable                  |
+| ≥0.5% and \<1%   | Likely to be suitable     |
+| \>0% and \<0.05% | Not likely to be suitable |
+| 0%               | Not suitable              |
+
+``` r
+
+level_suitability <- classify_levels(
+  climate_layers_ssp370_2011_2040(),
+  bryonia_alba
+)
+```
+
+1.  relabel each level of each climate variable within the original
+    climate raster with the corresponding suitability classification,
+    taking the minimum suitability level across variables to be the
+    overall suitability
+
+``` r
+
+cell_suitability <- classify_cells(
+  climate_layers_ssp370_2011_2040(),
+  level_suitability
+)
+```
+
 ## Getting help
 
 If you encounter a clear bug, please file an issue with a minimal
@@ -111,21 +125,26 @@ reproducible example on
 
 # Package index
 
-## All functions
+## Functions
+
+- [`classify_cells()`](https://cfia-pdam.github.io/protoclim/reference/classify_cells.md)
+  **\[experimental\]** : Classify the suitability of each cell of
+  climate data
+- [`classify_levels()`](https://cfia-pdam.github.io/protoclim/reference/classify_levels.md)
+  **\[experimental\]** : Classify the suitability of each level of
+  climate data
+
+## Example datasets
 
 - [`bryonia_alba`](https://cfia-pdam.github.io/protoclim/reference/bryonia_alba.md)
-  : GBIF occurrence data for Bryonia alba
-- [`classify_cells()`](https://cfia-pdam.github.io/protoclim/reference/classify_cells.md)
-  : Classify each cell of climate data into suitability classes
-- [`classify_layers()`](https://cfia-pdam.github.io/protoclim/reference/classify_layers.md)
-  : Classify each layer of climate data into suitability classes
+  **\[experimental\]** : GBIF occurrence data for Bryonia alba
 - [`climate_layers_ssp370_2011_2040()`](https://cfia-pdam.github.io/protoclim/reference/climate_layers_ssp370_2011_2040.md)
-  : Climate layers averaged over 2011 - 2040 under the SSP370 emission
-  scenario
+  **\[experimental\]** : Climate layers averaged over 2011 - 2040 under
+  the SSP370 emission scenario
 
 # Articles
 
 ### All vignettes
 
-- [Example
-  workflow](https://cfia-pdam.github.io/protoclim/articles/example-workflow.md):
+- [Basic
+  workflow](https://cfia-pdam.github.io/protoclim/articles/basic_workflow.md):

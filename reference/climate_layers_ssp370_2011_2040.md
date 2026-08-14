@@ -1,5 +1,7 @@
 # Climate layers averaged over 2011 - 2040 under the SSP370 emission scenario
 
+**\[experimental\]**
+
 Loads a categorical raster containing global Köppen-Geiger classes,
 precipitation bands, and plant hardiness zones. Downscaled and used for
 illustrative purposes only. For higher resolution data, see
@@ -37,12 +39,14 @@ A terra raster with three layers
 
   Plant hardiness zone (1-28).
 
+details go here
+
 ## Examples
 
 ``` r
 library(terra)
 #> terra 1.9.34
 
-plot(climate_layers_ssp370_2011_2040())
+plot(climate_layers_ssp370_2011_2040()$pb_mode)
 
 ```

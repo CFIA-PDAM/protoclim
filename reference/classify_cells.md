@@ -1,4 +1,6 @@
-# Classify each cell of climate data into suitability classes
+# Classify the suitability of each cell of climate data
+
+**\[experimental\]**
 
 Using the suitability classifications in `layer_classes`, assign each
 cell of climate `climate_data` a suitability classification for each
@@ -27,10 +29,14 @@ classify_cells(climate_data, layer_classes)
 a list of tibbles, one per climate layer, each with level-wise
 suitability classifications
 
+## Details
+
+details go here
+
 ## Examples
 
 ``` r
-layer_classes <- classify_layers(
+layer_classes <- classify_levels(
   climate_layers_ssp370_2011_2040(),
   bryonia_alba
 )

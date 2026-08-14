@@ -2,5 +2,5 @@
 
 ### All vignettes
 
-- [Example
-  workflow](https://cfia-pdam.github.io/protoclim/articles/example-workflow.md):
+- [Basic
+  workflow](https://cfia-pdam.github.io/protoclim/articles/basic_workflow.md):
