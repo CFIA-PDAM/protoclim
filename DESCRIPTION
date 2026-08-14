@@ -1,16 +1,27 @@
 Package: protoclim
-Title: Weed Risk Assessments using Climate Suitability Analysis
+Title: Climate Matching to Estimate Geographic Distributions of Plants
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Canadian Food Inspection Agency", role = c("cph", "fnd")),
-    person("Josh", "Persi", , "josh.persi@inspection.gc.ca", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-2700-6483")),
-    person("Megan", "Abergel", , "megan.abergel@inspection.gc.ca", role = "aut",
-           comment = c(ORCID = "0000-0002-0681-1889"))
+    person(
+        given = "Canadian Food Inspection Agency",
+        role = c("cph", "fnd")
+    ),
+    person(
+        given = "Josh", 
+        family = "Persi", 
+        email = "josh.persi@inspection.gc.ca", 
+        role = c("aut", "cre"),
+        comment = c(ORCID = "0000-0002-2700-6483")
+    ),
+    person(
+        given = "Megan",
+        family = "Abergel",
+        email = "megan.abergel@inspection.gc.ca",
+        role = "aut",
+        comment = c(ORCID = "0000-0002-0681-1889")
+    )
   )
-Description: Assess the climatic suitability of a weed species within
-    North America on the basis of Koppen-Geiger classes, plant hardiness
-    zones, and precipitation bands.
+Description: Climate matching of a plant species using the three categorical climate variables adopted by the Proto3 model.
 License: MIT + file LICENSE
 URL: https://cfia-pdam.github.io/protoclim/,
     https://github.com/CFIA-PDAM/protoclim

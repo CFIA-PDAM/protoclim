@@ -1,4 +1,14 @@
 url: https://cfia-pdam.github.io/protoclim/
 template:
   bootstrap: 5
+  light-switch: true
 
+reference:
+  - title: Functions
+    contents:
+      - classify_cells
+      - classify_levels
+  - title: Example datasets
+    contents:
+    - bryonia_alba
+    - climate_layers_ssp370_2011_2040

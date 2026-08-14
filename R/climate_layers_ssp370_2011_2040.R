@@ -1,7 +1,9 @@
+#' @title
 #' Climate layers averaged over 2011 - 2040 under the SSP370 emission scenario
 #'
+#' @description
 #' `r lifecycle::badge("experimental")`
-#' 
+#'
 #' Loads a categorical raster containing global Köppen-Geiger classes,
 #' precipitation  bands, and plant hardiness zones. Downscaled and used for
 #' illustrative purposes only. For higher resolution data, see
@@ -17,18 +19,25 @@
 #' @return A \code{terra::SpatRaster} with three categorical layers, in
 #'   lon/lat WGS 84 (EPSG:4326).
 #'
+#' @details
+#' details go here
+#'
+#' @concept example data sets
+#'
 #' @source Derived from \url{https://zenodo.org/records/21400412}
 #'
 #' @examples
 #' library(terra)
 #'
-#' plot(climate_layers_ssp370_2011_2040())
+#' plot(climate_layers_ssp370_2011_2040()$pb_mode)
 #'
 #' @export
 climate_layers_ssp370_2011_2040 <- function() {
-  terra::rast(system.file(
+  r <- terra::rast(system.file(
     "extdata",
     "climate_layers_ssp370_2011_2040.tif",
     package = "protoclim"
   ))
+
+  return(r)
 }

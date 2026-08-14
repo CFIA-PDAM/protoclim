@@ -4,9 +4,9 @@
 \name{protoclim-package}
 \alias{protoclim}
 \alias{protoclim-package}
-\title{protoclim: Weed Risk Assessments using Climate Suitability Analysis}
+\title{protoclim: Climate Matching to Estimate Geographic Distributions of Plants}
 \description{
-Assess the climatic suitability of a weed species within North America on the basis of Koppen-Geiger classes, plant hardiness zones, and precipitation bands.
+Climate matching of a plant species using the three categorical climate variables adopted by the Proto3 model.
 }
 \seealso{
 Useful links:

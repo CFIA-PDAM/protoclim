@@ -1,0 +1,125 @@
+---
+title: "Basic workflow"
+execute:
+  freeze: auto
+format:
+  html:
+    df-print: tibble
+    
+    lightbox: true
+knitr: 
+  opts_chunk:
+    collapse: true
+    comment: "#>"
+---
+
+```{r}
+#| echo: false
+
+library(protoclim)
+
+# Update document settings to show only the first 6 rows of tibbles
+options(pillar.print_min = 5, pillar.print_max = 5)
+```
+
+## Introduction
+
+Biologists working at regulatory agencies like the United States Department of Agriculture and the Canadian Food Inspection Agency often need to quickly estimate the potential geographic distribution of a plant species while performing a formal pest risk analysis. The `{protoclim}` package is designed to help biologists perform this task by estimating a plant species' potential geographic distribution on the basis of the species' known distribution in climatically similar areas elsewhere in the world (i.e. climate matching). 
+
+## Data
+
+To provide an overview of the basic `{protoclim}` workflow, we will use the following example datasets:
+
+1.  `bryonia_alba`, GBIF occurrence data for *Bryonia alba*, the [eastern white-bryony](https://www.gbif.org/taxon/NJ97)
+
+2.  `climate_layers_ssp370_2011_2040()`, downscaled Köppen-Geiger classes, plant hardiness zones, and precipitation bands for present day (2011-2040) climate under the SSP3-7.0 high emission scenario.
+
+To get familiar with the data, let's look at a few rows of the occurrence data for _Bryonia alba_
+```{r}
+head(bryonia_alba)
+```
+
+Now let's look at the output of `climate_layers_ssp370_2011_2040()`, which is a `SpatRaster` object with three layers: one for Köppen-Geiger climate classes, one for precipitation bands, and one plant hardiness zones. Each layer is actually an average, the mode, taken across multiple global climate models. See the [`protoclimData`](https://github.com/CFIA-PDAM/protoclimData) repository on GitHub for additional details.
+```{r}
+climate_layers_ssp370_2011_2040()
+```
+
+Before proceeding with the rest of the workflow, we recommend spending some time cleaning the occurrence data in `bryonia_alba`. Cleaning occurrence data is a nuanced and often labour-intensive process that requires a good understanding of the plant species' biology. Here, we will perform automated cleaning using the `{CoordinateCleaner}` package. We recommend reading [Cleaning GBIF data for the use in biogeography](https://docs.ropensci.org/CoordinateCleaner/articles/Cleaning_GBIF_data_with_CoordinateCleaner.html) from the `{CoordinateCleaner}` authors for additional information on cleaning occurrence data. 
+
+```{r}
+#| output: false
+#| warning: false
+
+# Remove all occurrence records without coordinates
+bryonia_alba <- dplyr::filter_out(
+  bryonia_alba,
+  is.na(decimalLatitude),
+  is.na(decimalLongitude)
+)
+
+# Convert ISO 2 country codes to ISO 3 country codes for use with CoordinateCleaner
+bryonia_alba <- dplyr::mutate(
+  bryonia_alba,
+  countryCode = countrycode::countrycode(
+    countryCode,
+    origin = 'iso2c',
+    destination = 'iso3c'
+  )
+)
+
+# Keep only clean occurrence data using CoordinateCleaner
+bryonia_alba <- CoordinateCleaner::clean_coordinates(
+  bryonia_alba,
+  value = "clean"
+)
+```
+
+## Climate Matching
+
+The first step in the `{protoclim}` climate matching workflow is to classify the suitability of each level of the three climate layers in `climate_layers_ssp370_2011_2040()`. In essence, this process involves combining the occurrence data in `bryonia_alba` with each climate variable in `climate_layers_ssp370_2011_2040()`, counting the number of occurrence records in each level of each climate variable, and calculating the proportion of occurrence records within each level of each climate variable. The proportion of occurrence records within each level of each climate variable informs the suitability classifications based on the following cutoffs:
+
+  | Proportion     | Suitability               |
+  | :------------- | :------------------------ |
+  | >1%            | Suitable                  |
+  | ≥0.5% and <1%  | Likely to be suitable     |
+  | >0% and <0.5%  | Not likely to be suitable |
+  | 0%             | Not suitable              |
+
+This process is performed by the `classify_levels()` function, which takes as input a `SpatRaster` object of climate layers and a tibble of occurrence data. The output is a list of tibbles, one per climate layer, with the suitability classification for each level of each climate layer. 
+
+```{r}
+level_suitability <- classify_levels(
+  climate_layers_ssp370_2011_2040(),
+  bryonia_alba
+)
+
+level_suitability
+```
+
+As shown in the above output, we classified the suitability of each level of each climate variable for _Bryonia alba_ based on the known distribution of _Bryonia alba_ and its proportional occurrence in each level. For example, _Bryonia alba_ has never occurred in the Köppen-Geiger climate classes 1 through 4 and these levels are therefore classified as `Not suitable`.
+
+The next step is to feed these suitability classifications back into the global raster of climate data so that each cell within the raster can be assigned a suitability classification based on each climate variable. The suitability classifications for Köppen-Geiger classes, plant hardiness zones, and precipitation bands, are likely to differ as these variables measure different aspects of climate. Therefore, we take the minimum suitability classification across the three climate variables to assign an overall suitability classification to each cell in the raster. This process is performed by the `classify_cells()` function, which takes as input a `SpatRaster` object of climate layers and a list of tibbles with the suitability classifications for each level of each climate layer. The output is a `SpatRaster` object with the original climate variables relabelled by their suitability as well as an additional layer containing the overall suitability classification for each cell in the raster.
+
+```{r}
+cell_suitability <- classify_cells(
+  climate_layers_ssp370_2011_2040(),
+  level_suitability
+)
+
+cell_suitability
+```
+
+At this point, we have a global raster of climate data with each cell classified by its overall suitability for _Bryonia alba_. The final step is to visualize the results. You can tailor the visualization to a particular pest risk area and use whichever supported visualization library you prefer. Here, we will crop the raster to the extent of Canada and the Canada and the continental United States, repropject the raster to an appropriate projection, and plot the climate suitability map.
+
+```{r}
+pra <-
+  rnaturalearth::ne_states(country = c("Canada", "United States of America")) |>
+  dplyr::filter_out(name == "Hawaii") |>
+  terra::vect()
+
+cell_suitability[["overall"]] |>
+  terra::crop(pra, mask = TRUE) |>
+  terra::project("EPSG:3347", method = "near", progress = FALSE) |>
+  terra::trim() |>
+  terra::plot(axes = FALSE)
+```

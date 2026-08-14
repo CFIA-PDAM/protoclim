@@ -2,7 +2,7 @@
 % Please edit documentation in R/classify_cells.R
 \name{classify_cells}
 \alias{classify_cells}
-\title{Classify each cell of climate data into suitability classes}
+\title{Classify the suitability of each cell of climate data}
 \usage{
 classify_cells(climate_data, layer_classes)
 }
@@ -17,13 +17,18 @@ a list of tibbles, one per climate layer, each with level-wise
 suitability classifications
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 Using the suitability classifications in \code{layer_classes}, assign each cell of
 climate \code{climate_data} a suitability classification for each layer of data.
 Take the minimum suitability classification across all layers to assign an
 overall classification to each cell.
 }
+\details{
+details go here
+}
 \examples{
-layer_classes <- classify_layers(
+layer_classes <- classify_levels(
   climate_layers_ssp370_2011_2040(),
   bryonia_alba
 )

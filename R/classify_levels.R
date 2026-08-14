@@ -1,5 +1,7 @@
-#' Classify each layer of climate data into suitability classes
+#' @title
+#' Classify the suitability of each level of climate data
 #'
+#' @description
 #' `r lifecycle::badge("experimental")`
 #'
 #' Based on the proportion of a taxon's occurrence records within each level of
@@ -14,11 +16,14 @@
 #' @returns a list of tibbles, one per climate layer, each with level-wise
 #' suitability classifications
 #'
+#' @details
+#' details go here
+#'
 #' @examples
-#' classify_layers(climate_layers_ssp370_2011_2040(), bryonia_alba)
+#' classify_levels(climate_layers_ssp370_2011_2040(), bryonia_alba)
 #'
 #' @export
-classify_layers <- function(climate_data, occurrence_data) {
+classify_levels <- function(climate_data, occurrence_data) {
   check_climate_data(climate_data)
   check_occurrence_data(occurrence_data)
 

@@ -1,7 +1,7 @@
 ^protoclim\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
-^README\.Rmd$
+^README\.qmd$
 ^cran-comments\.md$
 ^\.github$
 ^\.vscode$
@@ -12,3 +12,5 @@
 ^pkgdown$
 ^codecov\.yml$
 ^vignettes$
+^styles$
+^.vale.ini$

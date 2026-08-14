@@ -1,6 +1,6 @@
 df <- protoclim::classify_cells(
   climate_layers_ssp370_2011_2040(),
-  protoclim::classify_layers(climate_layers_ssp370_2011_2040(), bryonia_alba)
+  protoclim::classify_levels(climate_layers_ssp370_2011_2040(), bryonia_alba)
 )
 
 testthat::test_that("classify_cells() returns a SpatRaster with the expected dimensionality", {

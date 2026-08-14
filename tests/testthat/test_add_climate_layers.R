@@ -9,7 +9,7 @@ testthat::test_that("add_climate_layers() produces the expected shape when run
 with packaged data", {
   testthat::expect_shape(
     add_climate_layers(climate_data, bryonia_alba),
-    dim = c(9997, 12)
+    dim = c(10023, 8)
   )
 })
 

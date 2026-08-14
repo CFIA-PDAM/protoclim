@@ -1,0 +1,11 @@
+Bryonia alba
+CHELSA
+GBIF
+geotargets
+Köppen-Geiger
+NPPOs?
+protoclim
+rgbif
+terra
+tibbles?
+Zenodo

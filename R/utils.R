@@ -27,7 +27,7 @@ add_climate_layers <- function(climate_data, occurrence_data) {
   )
 
   # To each row of occurrence data with valid coordinates, extract the layer
-  # values of the containing climate_data cell. Supress the ID column since it's
+  # values of the containing climate_data cell. Suppress the ID column since it's
   # never needed.
   df <- dplyr::mutate(
     occurrence_data,
